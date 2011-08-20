@@ -1,1 +1,9 @@
+Simple Quadrotor Simulator
+--------------------------
+
+Based on qrsim -- simple quad rotor simulator by Arjan J.C. van Gemund,
+Embedded Software Lab, TU Delft.
+
+Code cleaned up and ported to MATLAB by John Stowers, University of Canterbury
+
 http://www.st.ewi.tudelft.nl/~gemund/Courses/In4073/Resources/
