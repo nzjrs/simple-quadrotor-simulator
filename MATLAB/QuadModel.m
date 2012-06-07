@@ -64,9 +64,9 @@ classdef QuadModel < handle
             %   y:      starting position (earth axis y)
             %   z:      starting position (earth axis z, i.e negative
             %           values are above ground)
-            jset_default_value(1, 'x', 0.0);
-            jset_default_value(2, 'y', 0.0);
-            jset_default_value(3, 'z', 0.0);
+            if nargin < 1, x = 0.0; end
+            if nargin < 2, y = 0.0; end
+            if nargin < 3, z = 0.0; end
             o.x = x; o.y = y; o.z = z;
         end
         
