@@ -1,5 +1,5 @@
 CFLAGS = -W -Wall -O2 
-LDLIBS = -lglut -lGLU -lGL
+LDLIBS = -lglut -lGLU -lGL -lm
 
 qrsim: 		qrsim.o qrdisp.o qrmod.o qrcont.o 
 		gcc -o qrsim $(CFLAGS) qrsim.o qrdisp.o qrmod.o qrcont.o $(LDLIBS)
