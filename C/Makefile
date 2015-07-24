@@ -1,7 +1,7 @@
-CFLAGS = -W -Wall -O2 
-LDLIBS = -lglut -lGLU -lGL
+CFLAGS = -W -Wall -O2
+LDLIBS = -lglut -lGLU -lGL -lm
 
-qrsim: 		qrsim.o qrdisp.o qrmod.o qrcont.o 
+qrsim: 		qrsim.o qrdisp.o qrmod.o qrcont.o
 		gcc -o qrsim $(CFLAGS) qrsim.o qrdisp.o qrmod.o qrcont.o $(LDLIBS)
 
 qrsim.o: 	qrsim.h qrmod.h qrdisp.h qrcont.h qrsim.c
@@ -18,4 +18,3 @@ qrcont.o: 	qrsim.h qrcont.c
 
 clean:
 		$(RM) *.o *~ qrsim
-
