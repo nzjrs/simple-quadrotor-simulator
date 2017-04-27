@@ -54,10 +54,12 @@ int	simulations;
 
 #define JS_DEV		"/dev/input/js0"
 #define JS_SENSITIVITY	10000.0
+#define JS_N_AXES 6
+#define JS_N_BUTTONS 12
 int 			fd,errno;
 struct js_event 	js;
-int			axis[6];
-int			button[12];
+int			axis[JS_N_AXES];
+int			button[JS_N_BUTTONS];
 double			js_roll, js_pitch, js_yaw, js_lift;
 
 double			kb_roll, kb_pitch, kb_yaw, kb_lift;
@@ -366,10 +368,12 @@ void simulate()
 		       sizeof(struct js_event))  {
 			switch(js.type & ~JS_EVENT_INIT) {
 				case JS_EVENT_BUTTON:
-					button[js.number] = js.value;
+                    if (js.number < JS_N_BUTTONS)
+                        button[js.number] = js.value;
 					break;
 				case JS_EVENT_AXIS:
-					axis[js.number] = js.value;
+                    if (js.number < JS_N_AXES)
+                        axis[js.number] = js.value;
 					break;
 			}
 			if (errno != EAGAIN) {
